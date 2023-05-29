@@ -1,5 +1,6 @@
 ### dependency
 streamlit
+pandas
 
 ### local packages -
 -e . 
