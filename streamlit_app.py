@@ -28,13 +28,11 @@ with st.spinner("Downloading the pkl file..."):
 
 # Load the pkl file
 with open("your_pk2_file.pkl1", "rb") as f:
-    similarity = pd.read_pickle('artifacts/similarity.pkl')
+    similarity = pd.read_pickle(f)
 
 
 # movies = pd.read_pickle('artifacts/movie_list.pkl')
 # similarity = pd.read_pickle('artifacts/similarity.pkl')
-
-
 
 def fetch_poster(movie_id):
     url = "https://api.themoviedb.org/3/movie/{}/images".format(movie_id)

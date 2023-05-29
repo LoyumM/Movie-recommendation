@@ -1,6 +1,8 @@
 ### dependency
-streamlit
-pandas
+streamlit==1.22.0
+pandas==2.0.1
+pickle==4.0
+requests==2.31.0
 
 ### local packages -
 -e . 
