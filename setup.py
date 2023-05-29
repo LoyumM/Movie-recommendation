@@ -6,8 +6,13 @@ with open("README.md", "r", encoding="utf-8") as f:
 REPO_NAME = "Movie-Recommendation"
 AUTHOR_USER_NAME = "LoyumM"
 SRC_REPO = "src"
-LIST_OF_REQUIREMENTS = ['streamlit']
-
+# LIST_OF_REQUIREMENTS = ['streamlit']
+LIST_OF_REQUIREMENTS = [
+    'streamlit==1.22.0',
+    'pandas==1.0.1',
+    'pickle==4.0',
+    'requests==2.31.0',
+]
 
 setup(
     name=SRC_REPO,
