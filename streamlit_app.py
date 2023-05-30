@@ -25,7 +25,7 @@ movies = load_pickle_files(movies_download_url, "movies.pkl")
 similarity = load_pickle_files(similarity_download_url, "similarity.pkl")
 
 st.title("Movies recommendation")
-st.header("""
+st.write("""
 This app finds similar movies using **cosine similarity** and the model, for now is trained on movie data from **TMDB** till 2016!
 * **Python libraries:** numpy, pandas, sklearn, nltk, requests, streamlit and gdown.
 * **Source code:** [Github repository](https://github.com/LoyumM/Movie-recommendation).
