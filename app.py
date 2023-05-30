@@ -3,7 +3,13 @@ import requests
 import pandas as pd
 import streamlit as st 
 
-st.header("Movies recommendation")
+st.title("Movies recommendation")
+st.header("""
+This app finds similar movies using **cosine similarity** and the model, for now is trained on movie data from **TMDB** till 2016!
+* **Python libraries:** numpy, pandas, sklearn, nltk, requests, streamlit and gdown.
+* **Source code:** [Github repository](https://github.com/LoyumM/Movie-recommendation).
+""")
+
 movies = pd.read_pickle('artifacts/movie_list.pkl')
 similarity = pd.read_pickle('artifacts/similarity.pkl')
 
@@ -58,3 +64,5 @@ if st.button('Show Recommendation'):
     with col5:
         st.text(recommended_movie_names[4])
         st.image(recommended_movie_posters[4])
+        
+st.write("Work in progress. More features to be added. ")

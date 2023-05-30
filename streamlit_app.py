@@ -24,7 +24,12 @@ def load_pickle_files(url, filename):
 movies = load_pickle_files(movies_download_url, "movies.pkl")
 similarity = load_pickle_files(similarity_download_url, "similarity.pkl")
 
-st.header("Movies recommendation")
+st.title("Movies recommendation")
+st.header("""
+This app finds similar movies using **cosine similarity** and the model, for now is trained on movie data from **TMDB** till 2016!
+* **Python libraries:** numpy, pandas, sklearn, nltk, requests, streamlit and gdown.
+* **Source code:** [Github repository](https://github.com/LoyumM/Movie-recommendation).
+""")
 
 def fetch_poster(movie_id):
     url = "https://api.themoviedb.org/3/movie/{}/images".format(movie_id)
@@ -77,3 +82,6 @@ if st.button('Show Recommendation'):
     with col5:
         st.text(recommended_movie_names[4])
         st.image(recommended_movie_posters[4])
+
+
+st.write("Work in progress. More features to be added. ")
