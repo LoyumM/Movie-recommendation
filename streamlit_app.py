@@ -1,11 +1,30 @@
 import pickle
 import requests
 import pandas as pd
+import gdown
 import streamlit as st 
 
+
+movies_file_id = "1ZiyIPOnAsCnCbwi3ltvBorsXgg8MpYZF"
+similarity_file_id = "1ICnGsc5mx6ArS09O9sxJrLEhEaIf5jtk"
+movies_download_url = f"https://drive.google.com/uc?export=download&id={movies_file_id}"
+similarity_download_url = f"https://drive.google.com/uc?export=download&id={similarity_file_id}"
+
+
+def download_file(url, output_path):
+    gdown.download(url, output_path, quiet=False)
+
+
+@st.cache_data     
+def load_pickle_files(url, filename):
+    download_file(url, filename)
+    data = pd.read_pickle(filename)
+    return data
+
+movies = load_pickle_files(movies_download_url, "movies.pkl")
+similarity = load_pickle_files(similarity_download_url, "similarity.pkl")
+
 st.header("Movies recommendation")
-movies = pd.read_pickle('artifacts/movie_list.pkl')
-similarity = pd.read_pickle('artifacts/similarity.pkl')
 
 def fetch_poster(movie_id):
     url = "https://api.themoviedb.org/3/movie/{}/images".format(movie_id)
